@@ -1,10 +1,11 @@
 <template>
-   <div class="container">
+   
       <div class="calculator">
          <h1>Calculator</h1>
+
          <div class="calculator-output">
             {{ showingResult ? currentResult : currentInput }}
-            <small>{{ inputAsString }}</small>
+         
          </div>
 
          <div class="calculator-input">
@@ -27,13 +28,9 @@
          </div>
 
       </div>
-   </div>
-</template>
+   </template>
 
 <script>
-
-
-
 
 export default {
    data() {
@@ -53,9 +50,6 @@ export default {
       currentInputAsNumber() {
          return Number(this.currentInput)
       },
-
-
-
    },
 
 
@@ -147,14 +141,7 @@ export default {
 
 </script>
 
-<style>
-:root {
-
-   --background: #344050;
-   --background-operators: #404D5E;
-   --background-output__numbers: #425062;
-}
-
+<style scoped>
 
 h1 {
    font-size: 1rem;
@@ -162,19 +149,16 @@ h1 {
    margin: 0.5rem;
    font-family: Arial, Helvetica, sans-serif;
    text-align: center;
-
 }
-
 .calculator {
    max-width: 320px;
    background: var(--background);
    width: 320px;
    height: 530px;
    border: 1px solid black;
-   margin: 1rem auto;
+   margin: 1rem 0;
    border-radius: 1rem;
 }
-
 .calculator-output {
    font-family: Arial, Helvetica, sans-serif;
    font-size: 3rem;
@@ -193,7 +177,6 @@ small {
    left: 50%;
    color: grey;
 }
-
 .calculator-input {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
@@ -202,15 +185,12 @@ small {
    margin: 2rem 1rem;
 
 }
-
 .span-2 {
    grid-column: span 2;
 }
-
 .span-3 {
    grid-column: span 3;
 }
-
 .button {
    font-size: 1rem;
    height: 65px;
@@ -219,35 +199,27 @@ small {
    background-color: var(--background-output__numbers);
    border-radius: 0.3rem;
 }
-
 .button:hover {
    background: #627896;
 }
-
-
 .button:nth-child(1) {
    color: #f05c5c;
    font-size: 1.2rem;
 }
-
 .button:nth-child(1):hover {
    background-color: #f05c5c;
    font-size: 1.2rem;
    color: white;
 }
-
 .button:nth-child(16) {
    color: lightgreen;
    font-size: 1.2rem;
 }
-
 .button:nth-child(16):hover {
    background-color: lightgreen;
    font-size: 1.2rem;
    color: white;
 }
-
-
 .operator {
    background-color: #404D5E;
    color: #A8ADB5;
