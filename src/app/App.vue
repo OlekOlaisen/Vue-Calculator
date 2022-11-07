@@ -1,8 +1,8 @@
 <template>
 	<section class="website-container">
 
-	<Calculator />
-	<unitConverter/>
+		<Calculator />
+		<unitConverter />
 
 	</section>
 
@@ -25,25 +25,32 @@ export default {
 <style>
 :root {
 
-   --background: #344050;
-   --background-operators: #404D5E;
-   --background-output__numbers: #425062;
+	--background: #344050;
+	--background-operators: #404D5E;
+	--background-output__numbers: #425062;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .website-container {
 	display: flex;
 	flex-flow: row;
-	justify-items:left;
-	justify-content: space-evenly;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: rgb(240, 187, 137);
 }
 
 h1 {
-   font-size: 1rem;
-   color: white;
-   margin: 0.5rem;
-   font-family: Arial, Helvetica, sans-serif;
-   text-align: center;
+	font-size: 1rem;
+	color: white;
+	margin: 0.5rem;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
 
 }
-
 </style>
