@@ -5,6 +5,7 @@
 
       <div class="calculator-output">
          {{ showingResult ? currentResult : currentInput }}
+         <small>{{ sequence }}</small>
 
       </div>
 
@@ -35,6 +36,7 @@
 export default {
    data() {
       return {
+         sequence: '',
          currentResult: 0,
          currentInput: 0,
          currentOperator: null,
@@ -42,9 +44,7 @@ export default {
       }
    },
 
-   created() {
-      addEventListener('keyup', this.handleKeyup);
-   },
+
 
    computed: {
       currentInputAsNumber() {
@@ -74,9 +74,12 @@ export default {
          }
       },
 
+
+
       clearResult() {
+         this.sequence = '';
          this.currentResult = 0;
-         this.currentInput = 0;
+         this.currentInput = "";
          this.currentOperator = null;
          this.showingResult = false;
       },
@@ -98,6 +101,45 @@ export default {
          this.showingResult = true;
       },
 
+
+
+
+
+
+      handleKeyup(event) {
+         switch (event.key) {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+               this.handleNumberInput(event.key)
+               break;
+            case '+':
+            case '-':
+            case '/':
+            case '*':
+               this.handleOperatorInput(event.key)
+               break;
+            case '.':
+            case ',':
+               this.handleNumberInput('.')
+               break;
+            case '=':
+            case 'Enter':
+               this.handleEqualsInput()
+               break;
+            case 'Escape':
+            case 'Backspace':
+               this.clearResult()
+               break;
+         }
+      }
    }
 }
 
@@ -122,7 +164,7 @@ h1 {
    margin-right: 3rem;
    border-radius: 1rem;
    border: none;
-   box-shadow: 3px 3px 10px rgb(32, 32, 32);
+   box-shadow: 5px 5px 10px rgb(0, 0, 0);
 }
 
 .calculator-output {
@@ -193,7 +235,7 @@ small {
 .button:nth-child(16):hover {
    background-color: lightgreen;
    font-size: 1.2rem;
-   color: black;
+   color: white;
 }
 
 .operator {
